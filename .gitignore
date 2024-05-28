@@ -1,0 +1,14 @@
+# .gitignore in project root
+# Ignore node_modules in both client and server
+**/node_modules
+**/build
+**/dist
+
+# Ignore env files in client and server
+client/.env
+server/.env
+
+# Other common ignores
+.DS_Store
+*.log
+*.lock
