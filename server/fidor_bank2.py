@@ -48,7 +48,7 @@ def callback():
         session['oauth_token']=token
 
         token_str = urllib.parse.quote(token["access_token"])
-        return redirect(f'http://localhost:3000/services?token={token_str}')
+        return redirect(f'http://localhost:3000/dashboard?token={token_str}')
     except KeyError:
         return redirect(url_for('default'))
 
