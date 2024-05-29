@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import MyNavbar from '../../components/MyNavbar/MyNavbar'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import './Coin.css'
 import DOMPurify from 'dompurify'
+import { Button } from '@chakra-ui/react'
 
 const Coin = () => {
 
@@ -20,15 +21,26 @@ const Coin = () => {
         }).catch((error) => {
             console.log(error);
         })
-    }, [])
+    }, [url])
 
     return (
         <div style={{ backgroundColor: '#26272b' }}>
             <MyNavbar />
 
             <div className='coin-container'>
-                <div className='content'>
+                <div className='header-content'>
                     <h1>{coin.name}</h1>
+                    <Link
+                    to={{
+                        pathname: `/buy/${coin.symbol}`,
+                        state: { coin }
+                      }}>
+                        <Button colorScheme='green' variant='outline' size='lg' border='2px'
+                        borderColor='green.500' width='150px'
+                        >
+                            BUY
+                        </Button>
+                    </Link>
                 </div>
 
                 <div className='content'>
@@ -39,15 +51,15 @@ const Coin = () => {
                     <div className='info'>
                         <div className='coin-heading'>
                             {coin.image ? <img src={coin.image.small} alt='' /> : null}
-                            <p style={{transform: 'translateY(6px)', paddingLeft: '10px'}}>{coin.name}</p>
-                            {coin.symbol ? <p style={{transform: 'translateY(6px)'}}>{coin.symbol.toUpperCase()}/SGD</p> : null}
+                            <p style={{ transform: 'translateY(6px)', paddingLeft: '10px' }}>{coin.name}</p>
+                            {coin.symbol ? <p style={{ transform: 'translateY(6px)' }}>{coin.symbol.toUpperCase()}/SGD</p> : null}
 
                         </div>
 
                         <div className='coin-price'>
                             {coin.market_data?.current_price ? <h1>${coin.market_data.current_price.sgd.toLocaleString()}</h1> : null}
                         </div>
-                        
+
                     </div>
                 </div>
 

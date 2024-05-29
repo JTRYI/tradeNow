@@ -8,6 +8,7 @@ import Dashboard from './screens/Dashboard/Dashboard';
 import CurrenciesScreen from './screens/currenciesScreen/currenciesScreen';
 import './App.css'
 import Coin from './screens/Coin/Coin';
+import BuyCoin from './screens/BuyCoin/BuyCoin';
 
 const App = () => {
   return (
@@ -18,6 +19,9 @@ const App = () => {
         <Route path="/currencies" element={<CurrenciesScreen />} />
         <Route path='/coin' element={<Coin />}>
           <Route path=':coinId' element = {<Coin/>}/>
+        </Route>
+        <Route path='/buy' element={<BuyCoin />}>
+          <Route path=':cryptoTicker' element = {<BuyCoin/>}/>
         </Route>
 
         <Route path="/bank_transfer" element={<BankTransfer />} />
