@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Heading, Text, Button } from '@chakra-ui/react';
 import MyNavbar from '../../components/MyNavbar/MyNavbar';
+import './Auth.css'
 
 const Auth = () => {
   const handleLogin = () => {
@@ -8,29 +9,30 @@ const Auth = () => {
   };
 
   return (
-    <div style={{ height: '100vh' }}>
+    <div className='landing-page' style={{ height: '100vh' }}>
       <MyNavbar/>
-      <Box maxW='32rem' style={{display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '32%', marginRight: '32%', marginTop: '10%'}}>
-        <Heading mb={4} style={{display: 'flex', alignItems: 'center'}}>Welcome to <img
+      <Box maxW='32rem' style={{display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '32%', marginRight: '32%', marginTop: '10%', color: '#f4f4f4'}}>
+        <Heading mb={5} style={{display: 'flex', alignItems: 'center'}}>Welcome to <img
           style={{marginLeft: '15px'}}
-          src="/img/tradeNow_logo-removebg.png"
-          width="70"
-          height="70"
+          src="/img/tradeNow.png"
+          width="80"
+          height="80"
           className="d-inline-block align-top"
+          alt=''
         /></Heading>
         <Text fontSize='xl'>
           Your one-stop platform for all your trading needs!
         </Text>
-        <Button size='lg' mt='24px' onClick={handleLogin} backgroundColor='rgba(61, 90, 254, 0.7);'
+        <Button size='lg' mt='24px' onClick={handleLogin} backgroundColor='#b386f1;'
         color='black' borderRadius={8} 
-        borderColor='#3D5AFE'
+        borderColor='#b386f1'
         _hover={
           {
-            color: 'white',
-            backgroundColor: '#3D5AFE'
+            color: '#f4f4f4',
+            backgroundColor: '#b386f1'
           }
         }>
-          Login Now!
+          Login Now
         </Button>
       </Box>
     </div>

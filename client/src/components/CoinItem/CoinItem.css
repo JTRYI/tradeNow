@@ -1,0 +1,40 @@
+
+.coin-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #26272B;
+    box-shadow: 0px 0px 12px #18191b;
+    border-radius: 8px;
+    margin: 2rem 1rem;
+    padding: 0.8rem 1rem 0.5rem 1rem; 
+    /* Top, Right, Bottom, Left */
+    color: #f4f4f4;
+}
+
+.coin-row:hover {
+    transform: scale(1.04);
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+.img-symbol {
+    display: flex;
+    align-items: center;
+    transform: translateX(-45px);
+}
+
+.img-symbol img {
+    height: 40px;
+    margin-right: 15px;
+    width: auto;
+}
+
+.img-symbol p {
+    transform: translateY(6px);
+}
+
+@media screen and (max-width: 720px) {
+    .hide-mobile {
+        display: none;
+    }
+}

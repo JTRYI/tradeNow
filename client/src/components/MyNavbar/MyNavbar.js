@@ -3,33 +3,39 @@ import './MyNavbar.css';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import { useNavigate } from 'react-router-dom';
 
 function MyNavbar() {
+
+  const navigate = useNavigate();
   return (
-    <Navbar style={{ backgroundColor: "#3D5AFE" }}>
+    <Navbar style={{ backgroundColor: "#26272b" }}>
       <Container>
         <Navbar.Brand href="#">
           <img
-            src="/img/tradeNow_logo-removebg.png"
-            width="70"
-            height="70"
+            src="/img/tradeNow.png"
+            width="80"
+            height="80"
             className="d-inline-block align-top"
+            alt=''
           />
         </Navbar.Brand>
         <Nav>
 
-          <Nav.Item style={{ padding: '0px 15px' }}>
-            <Nav.Link href="#" style={{ color: 'black' }}>Buy Cryptocurrencies</Nav.Link>
+          <Nav.Item style={{ padding: '0px 15px' }} onClick={() => {
+            navigate('/currencies')
+          }}>
+            <Nav.Link style={{ color: '#b386f1' }}><b>Cryptocurrencies</b></Nav.Link>
           </Nav.Item>
           <Nav.Item style={{ padding: '0px 15px' }}>
-            <Nav.Link href="#" style={{ color: 'black' }}>News</Nav.Link>
+            <Nav.Link href="#" style={{ color: '#b386f1' }}><b>News</b></Nav.Link>
           </Nav.Item>
           <Nav.Item style={{ padding: '0px 15px' }}>
-            <Nav.Link href="#" style={{ color: 'black' }}>Chatbot</Nav.Link>
+            <Nav.Link href="#" style={{ color: '#b386f1' }}><b>Chatbot</b></Nav.Link>
           </Nav.Item>
           <Nav.Item style={{ padding: '0px 15px' }}>
-            <Nav.Link href="#" style={{ color: 'black' }}>
-              Dashboard
+            <Nav.Link href="#" style={{ color: '#b386f1' }}>
+              <b>Dashboard</b>
             </Nav.Link>
           </Nav.Item>
         </Nav>

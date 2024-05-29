@@ -1,0 +1,29 @@
+.container{
+    max-width: 1140px;
+    margin: auto;
+    
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #26272B;
+    box-shadow: 0px 0px 12px #18191b;
+    border-radius: 8px;
+    margin: 2rem 1rem;
+    padding: 0.8rem 1rem 0.2rem 1rem; /* Top, Right, Bottom, Left */
+    font-weight: 700;
+    color: white;
+}
+
+.coin-name {
+    margin-left: -4rem;
+
+}
+
+@media screen and (max-width: 720px) {
+    .hide-mobile {
+        display: none;
+    }
+}

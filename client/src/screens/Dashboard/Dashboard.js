@@ -61,14 +61,14 @@ const Dashboard = () => {
         </div>
       </div>
     ) : (
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
-        <h4>Logging you in... Please Wait...</h4>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', backgroundColor: '#26272b' }}>
+        <h4 style={{color: '#f4f4f4'}}>Loading... Please Wait...</h4>
         <Spinner
           marginTop='20px'
           thickness='4px'
           speed='0.65s'
           emptyColor='gray.200'
-          color='#3D5AFE'
+          color='#b386f1'
           size='xl'
         />
       </div>
