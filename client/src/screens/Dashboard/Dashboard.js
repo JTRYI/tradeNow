@@ -16,11 +16,11 @@ const Dashboard = () => {
     if (token) {
       // Properly decode the token before storing it
       const decodedToken = decodeURIComponent(token);
-      localStorage.setItem('token', decodedToken);
+      sessionStorage.setItem('token', decodedToken);
     }
 
     const fetchData = async () => {
-      const storedToken = localStorage.getItem('token');
+      const storedToken = sessionStorage.getItem('token');
 
       if (!storedToken) {
         console.log("No Stored Token");
@@ -34,6 +34,7 @@ const Dashboard = () => {
           }
         });
         console.log("Responce for Services Route", response.data);
+        sessionStorage.setItem('user', JSON.stringify(response.data));
         setUser(response.data);
       } catch (error) {
         if (error.response && error.response.status === 401) {

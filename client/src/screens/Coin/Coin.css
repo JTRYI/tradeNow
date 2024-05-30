@@ -66,10 +66,11 @@ table {
 
 td, th {
     padding: 8px;
-    text-align: center;
+    text-align: center !important;
 }
 
 th {
+    
     background-color: #333;
 }
 

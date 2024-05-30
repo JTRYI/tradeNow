@@ -35,7 +35,7 @@ function MyNavbar() {
           </Nav.Item>
           <Nav.Item style={{ padding: '0px 15px' }}>
             <Nav.Link href="#" style={{ color: '#b386f1' }}>
-              <b>Dashboard</b>
+              <b>Portfolio</b>
             </Nav.Link>
           </Nav.Item>
         </Nav>

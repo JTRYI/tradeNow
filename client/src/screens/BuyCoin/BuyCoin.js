@@ -6,6 +6,7 @@ import axios from 'axios'
 import { useEffect } from 'react'
 import CandlestickChart from '../../components/CandlestickChart/CandlestickChart'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
+import BuySummary from '../../components/BuySummary/BuySummary'
 
 const getFormattedDate = (date) => date.toISOString().split('T')[0];
 
@@ -65,8 +66,23 @@ const BuyCoin = () => {
 
     }, [cryptoTicker, range, polygonAPIKey])
 
+    const cryptoCompareAPIKey = process.env.REACT_APP_CRYPTOCOMPARE_API_KEY;
+    const [price, setPrice] = useState();
+
+    useEffect(() => {
+        const url = `https://min-api.cryptocompare.com/data/price?fsym=${cryptoTicker}&tsyms=USD,SGD&api_key=${cryptoCompareAPIKey}`
+
+        axios.get(url).then((res) => {
+            setPrice(res.data);
+        }).catch((error) => {
+            console.log(error);
+        })
+
+    }, [cryptoTicker, cryptoCompareAPIKey])
+
+
     return (
-        <div>
+        <div className='buy-coin-screen'>
             <MyNavbar />
             <div className='buy-container'>
                 <div className='buy-left'>
@@ -77,31 +93,34 @@ const BuyCoin = () => {
                         setRange(ranges[index]);
                     }} className='left-tabs' variant='soft-rounded' colorScheme='purple'>
                         <TabList>
-                            <Tab style={{color: '#825db4'}}>1 Week</Tab>
-                            <Tab style={{color: '#825db4'}}>1 Month</Tab>
-                            <Tab style={{color: '#825db4'}}>3 Months</Tab>
-                            <Tab style={{color: '#825db4'}}>6 Months</Tab>
-                            <Tab style={{color: '#825db4'}}>1 Year</Tab>
+                            <Tab style={{ color: '#825db4' }}>1 Week</Tab>
+                            <Tab style={{ color: '#825db4' }}>1 Month</Tab>
+                            <Tab style={{ color: '#825db4' }}>3 Months</Tab>
+                            <Tab style={{ color: '#825db4' }}>6 Months</Tab>
+                            <Tab style={{ color: '#825db4' }}>1 Year</Tab>
                         </TabList>
-                        <TabPanels style={{paddingLeft: '23%', paddingTop: '2%'}}>
+                        <TabPanels style={{ paddingLeft: '22%', paddingTop: '2%' }}>
                             <TabPanel>
-                                <h5 style={{color: '#f4f4f4'}}>1 Week Data</h5>
+                                <h5 style={{ color: '#f4f4f4' }}>1 Week Data</h5>
                             </TabPanel>
                             <TabPanel>
-                                <h5 style={{color: '#f4f4f4'}}>1 Month Data</h5>
+                                <h5 style={{ color: '#f4f4f4' }}>1 Month Data</h5>
                             </TabPanel>
                             <TabPanel>
-                                <h5 style={{color: '#f4f4f4'}}>3 Months Data</h5>
+                                <h5 style={{ color: '#f4f4f4' }}>3 Months Data</h5>
                             </TabPanel>
                             <TabPanel>
-                                <h5 style={{color: '#f4f4f4'}}>6 Months Data</h5>
+                                <h5 style={{ color: '#f4f4f4' }}>6 Months Data</h5>
                             </TabPanel>
                             <TabPanel>
-                                <h5 style={{color: '#f4f4f4'}}>1 Year Data</h5>
+                                <h5 style={{ color: '#f4f4f4' }}>1 Year Data</h5>
                             </TabPanel>
                         </TabPanels>
                     </Tabs>
                 </div>
+
+                <BuySummary cryptoPrice={price} cryptoTicker={cryptoTicker} />
+
             </div>
         </div>
     )

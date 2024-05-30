@@ -85,15 +85,14 @@ def services():
 @app.route("/process", methods=["POST"])
 def process():
     if request.method == "POST":
-        token = session['oauth_token']
-        customers_account = session['fidor_customer']
-        customer_details = customers_account['data'][0]
 
-        fidorID = customer_details['id']
-        custEmail = request.form['customerEmailAdd']
-        transferAmt = int(float(request.form['transferAmount']) * 100)
-        transferRemarks = request.form['transferRemarks']
-        transactionID = request.form['transactionID']
+        token = request.headers.get('Authorization').split(" ")[1]
+
+        fidorID = request.json['fidorID']
+        custEmail = request.json['customerEmailAdd']
+        transferAmt = int(float(request.json['transferAmount']) * 100)
+        transferRemarks = request.json['transferRemarks']
+        transactionID = request.json['transactionID']
 
         url = "https://api.tp.sandbox.fidorfzco.com/internal_transfers"
         payload = {
@@ -105,7 +104,7 @@ def process():
         }
         headers = {
             'Accept': 'application/vnd.fidor.de; version=1,text/json',
-            'Authorization': "Bearer " + token["access_token"],
+            'Authorization': "Bearer " + token,
             'Content-Type': "application/json"
         }
         response = requests.post(url, json=payload, headers=headers)
