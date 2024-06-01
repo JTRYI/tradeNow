@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import TransferResult from './components/TransferResult/TransferResult';
 import TransactionHistory from './components/TransactionHistory/TransactionHistory';
 import Auth from './screens/Auth/Auth';
 import Dashboard from './screens/Dashboard/Dashboard';
@@ -23,7 +22,6 @@ const App = () => {
           <Route path=':cryptoTicker' element = {<BuyCoin/>}/>
         </Route>
 
-        <Route path="/transfer_result" element={<TransferResult />} />
         <Route path="/transaction_history" element={<TransactionHistory />} />
       </Routes>
     </Router>

@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import MyNavbar from '../../components/MyNavbar/MyNavbar';
 import { Spinner } from '@chakra-ui/react';
+import GlobalData from '../../components/GlobalData/GlobalData';
+import './Dashboard.css'
+import TrendingCoins from '../../components/TrendingCoins/TrendingCoins';
 
 const Dashboard = () => {
   const [user, setUser] = useState(null);
@@ -51,19 +54,18 @@ const Dashboard = () => {
 
   return (
     user ? (
-      <div>
+      <div style={{ backgroundColor: '#26272b;' }}>
         <MyNavbar />
-        <div>
-          <h1>Welcome {user.firstName} {user.lastName} (Internal FIDOR ID: {user.id})</h1>
-          <h2>FIDOR Bank Account ({user.accountNo}) - Balance $ {user.balance}</h2>
-          <h2><u>Banking Menu</u></h2>
-          <Link to="/bank_transfer"><h2>Bank Transfer</h2></Link>
-          <Link to="/transaction_history"><h2>Transaction History</h2></Link>
+        <div className='dashboard-body'>
+          <div className='upper-body'>
+            <GlobalData />
+            <TrendingCoins/>
+          </div>
         </div>
       </div>
     ) : (
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', backgroundColor: '#26272b' }}>
-        <h4 style={{color: '#f4f4f4'}}>Loading... Please Wait...</h4>
+        <h4 style={{ color: '#f4f4f4' }}>Loading... Please Wait...</h4>
         <Spinner
           marginTop='20px'
           thickness='4px'

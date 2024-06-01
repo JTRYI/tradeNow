@@ -1,0 +1,25 @@
+.trending-coins-container {
+    box-shadow: 0px 0px 12px #18191b;
+    border-radius: 8px;
+    border: 1px solid;
+    width: 650px;
+
+}
+
+.coin-profile {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    /* Adjust the gap between the avatar and the name */
+    transform: translateX(15%);
+}
+
+/* Sticky table headers */
+.sticky-header th {
+    position: sticky;
+    top: 0;
+    background: #26272b;
+    /* Same color as table background */
+    z-index: 1;
+    /* Ensure the headers are above the table body */
+}

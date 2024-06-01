@@ -1,0 +1,9 @@
+.global-details-box{
+    width: max-content;
+    height: max-content;
+    color: #f4f4f4;
+    box-shadow: 0px 0px 12px #18191b;
+    border-radius: 8px;
+    padding: 20px;
+    
+}

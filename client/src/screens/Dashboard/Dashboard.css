@@ -1,0 +1,10 @@
+.dashboard-body{
+    margin-top: 1.5%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.upper-body {
+    display: flex;
+    justify-content: space-around;
+}

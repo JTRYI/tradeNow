@@ -11,7 +11,9 @@ function MyNavbar() {
   return (
     <Navbar style={{ backgroundColor: "#26272b" }}>
       <Container>
-        <Navbar.Brand href="#">
+        <Navbar.Brand onClick={() => {
+          navigate('/dashboard')
+        }} style={{cursor: 'pointer'}}>
           <img
             src="/img/tradeNow.png"
             width="80"

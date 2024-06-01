@@ -1,3 +1,25 @@
 html, body {
   background-color: #26272b;
 }
+
+/* WebKit-based browsers */
+::-webkit-scrollbar {
+  width: 6px;
+  /* Width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #26272b;
+  /* Color of the scrollbar track */
+  border-radius: 6px;
+  /* Optional: Rounded corners for the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #b386f1;
+  /* Color of the scrollbar thumb */
+  border-radius: 6px;
+  /* Rounded corners for the thumb */
+  border: 1px solid #26272b;
+  /* Optional: Border around the thumb */
+}
