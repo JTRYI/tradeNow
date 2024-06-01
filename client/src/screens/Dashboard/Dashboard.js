@@ -6,6 +6,7 @@ import { Spinner } from '@chakra-ui/react';
 import GlobalData from '../../components/GlobalData/GlobalData';
 import './Dashboard.css'
 import TrendingCoins from '../../components/TrendingCoins/TrendingCoins';
+import TopVolume from '../../components/TopVolume/TopVolume';
 
 const Dashboard = () => {
   const [user, setUser] = useState(null);
@@ -54,13 +55,14 @@ const Dashboard = () => {
 
   return (
     user ? (
-      <div style={{ backgroundColor: '#26272b;' }}>
+      <div className='dashboard-page'>
         <MyNavbar />
         <div className='dashboard-body'>
           <div className='upper-body'>
+            <TrendingCoins />
             <GlobalData />
-            <TrendingCoins/>
           </div>
+          <TopVolume />
         </div>
       </div>
     ) : (

@@ -1,7 +1,12 @@
+.dashboard-page {
+    background-color: #26272b;
+}
+
 .dashboard-body{
     margin-top: 1.5%;
     margin-left: 5%;
     margin-right: 5%;
+    background-color: #26272b;
 }
 
 .upper-body {

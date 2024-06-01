@@ -82,7 +82,7 @@ const TrendingCoins = () => {
             <Heading size='md' color='#f4f4f4' padding='15px'>Trending Coins Based on User Searches</Heading>
             <BsFire style={{color: 'orange', transform: 'translateY(-5px', fontSize: '20px'}}/>
             </Box>
-            <TableContainer maxHeight="300px"  // Set the fixed height
+            <TableContainer maxHeight="280px"  // Set the fixed height
                 overflowY="auto">
                 <Table variant='simple' size='sm'>
                     <Thead className="sticky-header">
