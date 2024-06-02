@@ -1,33 +1,107 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  TableContainer,
+  Box,
+  Heading,
+  Spinner,
+  Center
 
-const TransactionHistory = () => {
-  const [transactions, setTransactions] = useState([]);
+} from '@chakra-ui/react'
+import { FaSackDollar } from "react-icons/fa6";
+import './TransactionHistory.css'
+
+const IndTransaction = (props) => {
+
+  const indTransaction = props.indTransaction;
+  const amount = indTransaction.amount / 100;
+
+  return (
+    <Tr>
+      <Td color='#f4f4f4'>
+        {indTransaction.id}
+      </Td>
+      <Td color='#f4f4f4'>
+        {indTransaction.transaction_type_details.recipient}
+      </Td>
+      <Td color='#f4f4f4'>
+        {indTransaction.transaction_type_details.remote_subject}
+      </Td>
+      <Td color='#f4f4f4'>
+        $ {amount}
+      </Td>
+      <Td color='#f4f4f4'>
+        {indTransaction.created_at}
+      </Td>
+    </Tr>
+  )
+}
+
+const TransactionHistory = (props) => {
+
+  const [isLoading, setIsLoading] = useState(true);
+  const transHistory = props.transactionHistory;
+  console.log("Trans History", transHistory);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/transactions/123456')  // replace with dynamic customer ID if needed
-      .then(response => setTransactions(response.data))
-      .catch(error => console.error('Error fetching transactions:', error));
-  }, []);
+    if (transHistory.length > 0) {
+      setIsLoading(false);
+    }
+  }, [transHistory]);
 
-  if (transactions.length === 0) {
-    return <div>No transaction history details</div>;
+
+  // This method will map out the transaction history on the table
+  function transactionHistoryList() {
+
+    return transHistory.map((InvTransaction) => (
+      <IndTransaction indTransaction={InvTransaction} />
+    ));
   }
 
   return (
-    <div>
-      {transactions.map((transaction, index) => (
-        <div key={index}>
-          <h2>Transaction ID: {transaction.id}</h2>
-          <h2>SGD $ {transaction.amount / 100} is transferred to {transaction.recipientName}</h2>
-          <h2>using recipient email : {transaction.email}</h2>
-          <h3>Transfer Remark : {transaction.subject}</h3>
-          <h3>Transfer Date : {transaction.date}</h3>
-        </div>
-      ))}
-      <Link to="/services"><h2>Back to Main Menu</h2></Link>
-    </div>
+    <Box className='transaction-history-container'>
+      <Box display='flex' alignItems='center'>
+        <Heading size='md' color='#f4f4f4' padding='15px'>Transaction History</Heading>
+        <FaSackDollar style={{ color: 'gold', transform: 'translateY(-4px)', fontSize: '20px' }} />
+      </Box>
+      <TableContainer maxHeight='300px'
+        overflowY="auto">
+        <Table variant='simple' size='sm'>
+          <Thead className="sticky-header">
+            <Tr>
+              <Th style={{ color: '#f4f4f4' }}>Transaction ID</Th>
+              <Th style={{ color: '#f4f4f4' }}>Recipient Email</Th>
+              <Th style={{ color: '#f4f4f4' }}>Subject</Th>
+              <Th style={{ color: '#f4f4f4' }}>Amount (SGD)</Th>
+              <Th style={{ color: '#f4f4f4' }}>Transfer Date</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            {isLoading ? (
+              <Td colSpan="5">
+                <Center py={6}>
+                  <Spinner
+                    thickness='4px'
+                    speed='0.65s'
+                    emptyColor='gray.200'
+                    color='#b386f1'
+                    size='xl'
+                  />
+                </Center>
+              </Td>
+            ) : (
+              transactionHistoryList()
+            )}
+          </Tbody>
+
+        </Table>
+      </TableContainer>
+    </Box>
   );
 };
 

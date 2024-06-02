@@ -77,7 +77,10 @@ def services():
             "firstName": customer_information["first_name"],
             "lastName": customer_information["last_name"],
             "accountNo": customer_details["account_number"],
-            "balance": customer_details["balance"] / 100
+            "balance": customer_details["balance"] / 100,
+            "accountCreation": customer_information["created_at"],
+            "email": customer_information["email"],
+            "nickname": customer_information["nick"]
         })
     except KeyError:
         return jsonify({"error": "Invalid token"}), 401
@@ -115,12 +118,14 @@ def process():
 @app.route("/transaction_history", methods=["GET"])
 def t_history():
     if request.method == "GET":
-        token = session['oauth_token']
+
+        token = request.headers.get('Authorization').split(" ")[1]
         url = "https://api.tp.sandbox.fidorfzco.com/transactions?page=1&per_page=10"
+
         headers = {
             'Accept': 'application/vnd.fidor.de; version=1,text/json',
             'Content-Type': 'application/json',
-            'Authorization': "Bearer " + token["access_token"]
+            'Authorization': "Bearer " + token
         }
         response = requests.get(url, headers=headers)
         transaction_histories = response.json()

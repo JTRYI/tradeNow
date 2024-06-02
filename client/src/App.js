@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import TransactionHistory from './components/TransactionHistory/TransactionHistory';
 import Auth from './screens/Auth/Auth';
 import Dashboard from './screens/Dashboard/Dashboard';
 import CurrenciesScreen from './screens/currenciesScreen/currenciesScreen';
 import './App.css'
 import Coin from './screens/Coin/Coin';
 import BuyCoin from './screens/BuyCoin/BuyCoin';
+import PortfolioScreen from './screens/PortfolioScreen/PortfolioScreen';
 
 const App = () => {
   return (
@@ -21,8 +21,7 @@ const App = () => {
         <Route path='/buy' element={<BuyCoin />}>
           <Route path=':cryptoTicker' element = {<BuyCoin/>}/>
         </Route>
-
-        <Route path="/transaction_history" element={<TransactionHistory />} />
+        <Route path="/portfolio" element={<PortfolioScreen/>}/>
       </Routes>
     </Router>
   );

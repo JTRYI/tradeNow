@@ -80,7 +80,7 @@ const TrendingCoins = () => {
         <Box className='trending-coins-container'>
             <Box display='flex' alignItems='center'>
             <Heading size='md' color='#f4f4f4' padding='15px'>Trending Coins Based on User Searches</Heading>
-            <BsFire style={{color: 'orange', transform: 'translateY(-5px', fontSize: '20px'}}/>
+            <BsFire style={{color: 'orange', transform: 'translateY(-5px)', fontSize: '20px'}}/>
             </Box>
             <TableContainer maxHeight="280px"  // Set the fixed height
                 overflowY="auto">

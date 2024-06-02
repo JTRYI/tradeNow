@@ -13,7 +13,7 @@ function MyNavbar() {
       <Container>
         <Navbar.Brand onClick={() => {
           navigate('/dashboard')
-        }} style={{cursor: 'pointer'}}>
+        }} style={{ cursor: 'pointer' }}>
           <img
             src="/img/tradeNow.png"
             width="80"
@@ -32,10 +32,9 @@ function MyNavbar() {
           <Nav.Item style={{ padding: '0px 15px' }}>
             <Nav.Link href="#" style={{ color: '#b386f1' }}><b>News</b></Nav.Link>
           </Nav.Item>
-          <Nav.Item style={{ padding: '0px 15px' }}>
-            <Nav.Link href="#" style={{ color: '#b386f1' }}><b>Chatbot</b></Nav.Link>
-          </Nav.Item>
-          <Nav.Item style={{ padding: '0px 15px' }}>
+          <Nav.Item style={{ padding: '0px 15px' }} onClick={() => {
+            navigate('/portfolio')
+          }}>
             <Nav.Link href="#" style={{ color: '#b386f1' }}>
               <b>Portfolio</b>
             </Nav.Link>

@@ -15,6 +15,7 @@ import {
 } from '@chakra-ui/react'
 import axios from 'axios'
 import Chart from 'react-apexcharts';
+import { GiPodium } from "react-icons/gi";
 
 const TopCoin = (props) => {
 
@@ -135,6 +136,7 @@ const TopVolume = () => {
         <Box className='top-coins-container'>
             <Box display='flex' alignItems='center'>
                 <Heading size='md' color='#f4f4f4' padding='15px'>Top Coins By 24h Trading Volume</Heading>
+                <GiPodium style={{transform: 'translateY(-7px)', fontSize: '25px', color: '#b386f1'}}/>
             </Box>
             <TableContainer overflowY="auto">
                 <Table variant='simple' size='sm'>
