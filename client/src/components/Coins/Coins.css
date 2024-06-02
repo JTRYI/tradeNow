@@ -1,7 +1,6 @@
-.container{
-    max-width: 1140px;
+.container {
+    min-width: 1140px;
     margin: auto;
-    
 }
 
 .heading {
@@ -12,14 +11,19 @@
     box-shadow: 0px 0px 12px #18191b;
     border-radius: 8px;
     margin: 2rem 1rem;
-    padding: 0.8rem 1rem 0.2rem 1rem; /* Top, Right, Bottom, Left */
+    padding: 0.8rem 1rem 0.2rem 1rem;
     font-weight: 700;
     color: white;
 }
 
-.coin-name {
-    margin-left: -4rem;
+.heading p {
+    flex: 1;
+    text-align: center;
+}
 
+.coin-name {
+    flex: 2; /* Make it twice as wide as the other columns */
+    text-align: center;
 }
 
 @media screen and (max-width: 720px) {

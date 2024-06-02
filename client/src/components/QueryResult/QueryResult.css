@@ -1,0 +1,5 @@
+.ind-result:hover {
+    transform: scale(1.04);
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}

@@ -8,7 +8,6 @@
     border-radius: 8px;
     margin: 2rem 1rem;
     padding: 0.8rem 1rem 0.5rem 1rem; 
-    /* Top, Right, Bottom, Left */
     color: #f4f4f4;
 }
 
@@ -17,20 +16,28 @@
     transition: .3s ease-in-out;
     cursor: pointer;
 }
+
+.coin-row p {
+    flex: 1;
+    text-align: center;
+}
+
 .img-symbol {
     display: flex;
     align-items: center;
-    transform: translateX(-45px);
+    flex: 1;  /*Make it twice as wide as the other columns */
+    
 }
 
 .img-symbol img {
     height: 40px;
-    margin-right: 15px;
+    transform: translateX(45px);
     width: auto;
 }
 
 .img-symbol p {
     transform: translateY(6px);
+    margin-left: 5px; /* Ensures a small gap between the image and the symbol */
 }
 
 @media screen and (max-width: 720px) {
@@ -38,3 +45,8 @@
         display: none;
     }
 }
+
+
+
+
+
