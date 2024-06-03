@@ -29,8 +29,10 @@ function MyNavbar() {
           }}>
             <Nav.Link style={{ color: '#b386f1' }}><b>Cryptocurrencies</b></Nav.Link>
           </Nav.Item>
-          <Nav.Item style={{ padding: '0px 15px' }}>
-            <Nav.Link href="#" style={{ color: '#b386f1' }}><b>News</b></Nav.Link>
+          <Nav.Item style={{ padding: '0px 15px' }} onClick={() => {
+            navigate('/more')
+          }}>
+            <Nav.Link href="#" style={{ color: '#b386f1' }}><b>More</b></Nav.Link>
           </Nav.Item>
           <Nav.Item style={{ padding: '0px 15px' }} onClick={() => {
             navigate('/portfolio')

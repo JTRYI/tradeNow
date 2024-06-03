@@ -7,6 +7,7 @@ import './App.css'
 import Coin from './screens/Coin/Coin';
 import BuyCoin from './screens/BuyCoin/BuyCoin';
 import PortfolioScreen from './screens/PortfolioScreen/PortfolioScreen';
+import MoreScreen from './screens/MoreScreen/MoreScreen';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/" element={<Auth />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/currencies" element={<CurrenciesScreen />} />
+        <Route path="/more" element={<MoreScreen/>} />
         <Route path='/coin' element={<Coin />}>
           <Route path=':coinId' element = {<Coin/>}/>
         </Route>
