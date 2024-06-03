@@ -22,9 +22,9 @@ const News = () => {
 
 
     return (
-       <Box >
+       <Box className='news-box'>
        <Heading color='#f4f4f4' paddingLeft='20px'>Crypto Related News</Heading>
-          <Box className="news-container" padding="20px" maxWidth='80%'>
+          <Box className="news-container" padding="20px" maxWidth='100%'>
           {news.map((newsItem) => (
             <Card
               key={newsItem.id}
