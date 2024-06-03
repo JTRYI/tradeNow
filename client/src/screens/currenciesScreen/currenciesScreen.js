@@ -20,7 +20,7 @@ const CurrenciesScreen = () => {
 
   const toast = useToast();
 
-  const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=sgd&per_page=10&page=1&sparkline=false'
+  const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=sgd&per_page=20&page=1&sparkline=false'
 
   useEffect(() => {
 
