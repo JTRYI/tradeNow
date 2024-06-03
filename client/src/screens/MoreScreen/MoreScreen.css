@@ -1,6 +1,16 @@
-.more-screen {
+.more-body {
     background-color: #26272b;
     padding-top: 1.5%;
     padding-left: 5%;
     padding-right: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.market-related{
+    display: flex;
+}
+
+.marketNSocial {
+    margin-right: 30px;
 }
