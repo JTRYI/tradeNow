@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Heading, Text, Button } from '@chakra-ui/react';
-import MyNavbar from '../../components/MyNavbar/MyNavbar';
 import './Auth.css'
 
 const Auth = () => {
@@ -9,9 +8,9 @@ const Auth = () => {
   };
 
   return (
-    <div className='landing-page' style={{ height: '100vh' }}>
-      <MyNavbar/>
-      <Box maxW='32rem' style={{display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '32%', marginRight: '32%', marginTop: '10%', color: '#f4f4f4'}}>
+    <div className='landing-page'>
+      
+      <Box maxW='32rem' style={{display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '33%', marginRight: '33%', marginTop: '15%', color: '#f4f4f4'}}>
         <Heading mb={5} style={{display: 'flex', alignItems: 'center'}}>Welcome to <img
           style={{marginLeft: '15px'}}
           src="/img/tradeNow.png"
