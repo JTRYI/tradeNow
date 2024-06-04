@@ -1,8 +1,39 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './AccountDetails.css'
 import { Card, CardHeader, CardBody, Box, Text, Heading, Stack, StackDivider, Avatar } from '@chakra-ui/react'
+import axios from 'axios'
 
 const AccountDetails = () => {
+
+    useEffect(() => {
+        
+        const fetchData = async () => {
+          const storedToken = sessionStorage.getItem('token');
+    
+          if (!storedToken) {
+            console.log("No Stored Token");
+            return;
+          }
+    
+          try {
+            const response = await axios.get('http://localhost:5000/services', {
+              headers: {
+                'Authorization': `Bearer ${storedToken}`
+              }
+            });
+            sessionStorage.setItem('user', JSON.stringify(response.data));
+
+          } catch (error) {
+            if (error.response && error.response.status === 401) {
+              console.log("Error 401");
+            } else {
+              console.error('Error fetching User:', error);
+            }
+          }
+        };
+    
+        fetchData();
+      }, []);
 
     const user = JSON.parse(sessionStorage.getItem('user'));
     // console.log("User", user);
